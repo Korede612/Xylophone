@@ -29,7 +29,6 @@ class ViewController: UIViewController {
     func setupAudioPlayer(title: String?) {
         guard let title,
               let url = Bundle.main.url(forResource: title, withExtension: "wav") else {
-            print("Sound file not found.")
             return
         }
         do {
@@ -37,7 +36,6 @@ class ViewController: UIViewController {
             try AVAudioSession.sharedInstance().setActive(true)
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             guard let audioPlayer else {
-                print("AudioPlayer not found.")
                 return
             }
             audioPlayer.play()
